@@ -1,0 +1,15 @@
+name: OSS Health Check
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: y0414892-a11y/oss-health-check@v0.2.1
+        with:
+          fail-under: "80"
